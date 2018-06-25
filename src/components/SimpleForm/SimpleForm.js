@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fire from '../../fire';
+import clear from '../../clear.svg';
 
 class SimpleForm extends Component {
   constructor(props) {
@@ -30,15 +31,18 @@ class SimpleForm extends Component {
 
   render() {
     return (
-    <form onSubmit={this.addMessage}>
-      <input type="text" ref={ el => this.text = el }/>
-      <input type="submit"/>
-      <ul>
-        {
-          this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
-        }
-      </ul>
-    </form>
+      <div>
+        <img src={clear}/>
+        <form onSubmit={this.addMessage}>
+          <input type="text" ref={ el => this.text = el }/>
+          <input type="submit"/>
+          <ul>
+            {
+              this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
+            }
+          </ul>
+        </form>
+      </div>
     )
   }
 }
